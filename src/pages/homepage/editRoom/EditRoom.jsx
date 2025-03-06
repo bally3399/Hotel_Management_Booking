@@ -26,9 +26,10 @@ const AddRoom = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
-         const token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbl9zdGV2ZSIsInJvbGVzIjpbIlJPTEVfUk9MRV9BRE1JTiJdLCJpYXQiOjE3NDEwMjIwMjIsImV4cCI6MTc0MTAzOTg4OX0.tU44OuaHMwFRGw71B1j8NuUZhj6u8CxR-o2vzznK0enUp8PALJfOeovosTWnoNHDFKJGPmXdabES2KK1iraJoQ"
+        const token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbl9zdGV2ZSIsInJvbGVzIjpbIlJPTEVfUk9MRV9BRE1JTiJdLCJpYXQiOjE3NDEwMjIwMjIsImV4cCI6MTc0MTAzOTg4OX0.tU44OuaHMwFRGw71B1j8NuUZhj6u8CxR-o2vzznK0enUp8PALJfOeovosTWnoNHDFKJGPmXdabES2KK1iraJoQ";
+
         try {
-            const response = await axios.post("http://api.fortunaehotel.com/api/v1/rooms", roomDetails, {
+            const response = await axios.put("http://api.fortunaehotel.com/api/v1/rooms/2", roomDetails, {
                 headers: { 
                     "Content-Type": "application/json", 
                     Authorization: `Bearer ${token}`
@@ -46,9 +47,10 @@ const AddRoom = () => {
         } finally {
             setIsLoading(false);
             navigate("/rooms");
-
         }
     };
+
+
 
     return (
         <Container maxWidth="sm" className={styles.container}>
